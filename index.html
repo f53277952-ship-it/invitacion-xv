@@ -3,212 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años - Invitación</title>
-    <!-- Importando fuentes elegantes de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Mis XV Años - Sofía Valentina</title>
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --color-principal: #fce4ec; /* Rosa muy claro */
-            --color-secundario: #d81b60; /* Rosa oscuro/magenta */
-            --color-dorado: #d4af37; /* Dorado para detalles */
-            --color-texto: #4a4a4a;
+            --color-fondo: #fcf9f9;
+            --color-principal: #e8b2c1; /* Rosa elegante */
+            --color-secundario: #4a4a4a; /* Gris oscuro para texto */
+            --color-dorado: #d4af37; /* Dorado clásico */
+            --color-blanco: #ffffff;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--color-principal);
-            font-family: 'Playfair Display', serif;
-            color: var(--color-texto);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-secundario);
+            overflow-x: hidden;
         }
 
-        .invitacion-container {
-            background-color: #ffffff;
-            max-width: 600px;
-            width: 100%;
-            padding: 50px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        h1, h2, h3, .fuente-elegante {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- SECCIÓN HERO (Inicio) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border: 2px solid var(--color-dorado);
+            padding: 20px;
+            background: linear-gradient(rgba(252, 249, 249, 0.8), rgba(252, 249, 249, 0.8)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
             position: relative;
         }
 
-        /* Adornos decorativos en las esquinas */
-        .invitacion-container::before,
-        .invitacion-container::after {
-            content: "❀";
-            position: absolute;
-            font-size: 30px;
-            color: var(--color-dorado);
-        }
-
-        .invitacion-container::before {
-            top: 15px;
-            left: 20px;
-        }
-
-        .invitacion-container::after {
-            bottom: 15px;
-            right: 20px;
-        }
-
-        .titulo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: var(--color-secundario);
-            margin-bottom: 10px;
-        }
-
-        .subtitulo {
+        .hero-etiqueta {
             font-size: 1.2rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             color: var(--color-dorado);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
-        .saludo {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .hero-titulo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: var(--color-principal);
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-saludo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--color-secundario);
+            padding: 10px 30px;
+            border-bottom: 2px solid var(--color-dorado);
+            border-top: 2px solid var(--color-dorado);
+        }
+
+        .hero-fecha {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
             color: var(--color-secundario);
         }
 
-        .mensaje {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            padding: 0 20px;
+        /* --- CUENTA REGRESIVA --- */
+        .contador-seccion {
+            background-color: var(--color-blanco);
+            padding: 60px 20px;
+            text-align: center;
         }
 
-        .detalles {
-            border-top: 1px solid var(--color-dorado);
-            border-bottom: 1px solid var(--color-dorado);
-            padding: 20px 0;
-            margin-bottom: 40px;
+        .contador-contenedor {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .detalle-item {
+        .contador-item {
+            background-color: var(--color-fondo);
+            border: 1px solid var(--color-principal);
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 100px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .contador-numero {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-dorado);
+            display: block;
+        }
+
+        .contador-texto {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-secundario);
+        }
+
+        /* --- DETALLES Y UBICACIONES --- */
+        .detalles-seccion {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .tarjeta-detalle {
+            background: var(--color-blanco);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--color-principal);
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta-detalle:hover {
+            transform: translateY(-10px);
+        }
+
+        .tarjeta-icono {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta-titulo {
+            font-size: 1.8rem;
+            color: var(--color-dorado);
             margin-bottom: 15px;
         }
 
-        .detalle-item:last-child {
-            margin-bottom: 0;
+        .tarjeta-texto {
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
-        .detalle-titulo {
-            font-weight: 700;
+        .btn {
+            display: inline-block;
+            background-color: var(--color-principal);
+            color: var(--color-blanco);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--color-dorado);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* --- ITINERARIO --- */
+        .itinerario-seccion {
+            background-color: var(--color-blanco);
+            padding: 80px 20px;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 2.5rem;
             color: var(--color-secundario);
-            display: block;
+            margin-bottom: 50px;
+        }
+
+        .timeline {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--color-principal);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-punto {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-dorado);
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-punto {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-punto {
+            left: -10px;
+        }
+
+        .timeline-hora {
+            font-weight: 700;
+            color: var(--color-principal);
+            font-size: 1.2rem;
             margin-bottom: 5px;
         }
 
-        .boton-asistencia {
-            display: inline-block;
-            background-color: var(--color-secundario);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+        /* --- ANIMACIONES DE SCROLL --- */
+        .animar-oculto {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
         }
 
-        .boton-asistencia:hover {
-            background-color: var(--color-dorado);
+        .animar-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Animación de entrada */
-        .fade-in {
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 480px) {
-            .titulo {
-                font-size: 2.8rem;
-            }
-            .saludo {
-                font-size: 1.3rem;
-            }
-            .invitacion-container {
-                padding: 40px 20px;
-            }
+        /* --- RESPONSIVE DESIGN (Móviles) --- */
+        @media (max-width: 768px) {
+            .hero-titulo { font-size: 3.5rem; }
+            .hero-saludo { font-size: 1.3rem; padding: 10px 15px; }
+            
+            .timeline::before { left: 30px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 0; text-align: left !important; left: 0 !important; }
+            .timeline-item:nth-child(odd) .timeline-punto,
+            .timeline-item:nth-child(even) .timeline-punto { left: 20px; }
+            
+            .contador-contenedor { gap: 10px; }
+            .contador-item { min-width: 70px; padding: 15px 10px; }
+            .contador-numero { font-size: 1.8rem; }
+            .contador-texto { font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="invitacion-container fade-in">
-        <h1 class="titulo">Mis XV Años</h1>
-        <div class="subtitulo">Sofía Valentina</div> <!-- Aquí puedes poner el nombre de la quinceañera -->
+    <!-- SECCIÓN HERO -->
+    <header class="hero">
+        <div class="hero-etiqueta animar-oculto">Mis Quince Años</div>
+        <h1 class="hero-titulo animar-oculto" style="transition-delay: 0.2s;">Sofía Valentina</h1>
+        
+        <!-- Saludo Dinámico -->
+        <div class="hero-saludo animar-oculto" id="saludo-familia" style="transition-delay: 0.4s;">
+            Queridos Invitados
+        </div>
+        
+        <div class="hero-fecha animar-oculto" style="transition-delay: 0.6s;">
+            1 de Agosto de 2026
+        </div>
+    </header>
 
-        <!-- Aquí es donde aparecerá el nombre de la familia dinámicamente -->
-        <div class="saludo" id="saludo-familia">Queridos Invitados</div>
-
-        <p class="mensaje">
-            Hay momentos en la vida que imaginamos, soñamos y esperamos con gran ilusión. 
-            Me encantaría compartir este día tan especial y mágico con ustedes.
-        </p>
-
-        <div class="detalles">
-            <div class="detalle-item">
-                <span class="detalle-titulo">¿Cuándo?</span>
-                Sábado, 15 de Agosto de 2026 a las 19:00 hrs.
+    <!-- SECCIÓN CUENTA REGRESIVA -->
+    <section class="contador-seccion">
+        <h2 class="titulo-seccion animar-oculto">Faltan</h2>
+        <div class="contador-contenedor animar-oculto">
+            <div class="contador-item">
+                <span class="contador-numero" id="dias">00</span>
+                <span class="contador-texto">Días</span>
             </div>
-            <div class="detalle-item">
-                <span class="detalle-titulo">Ceremonia y Recepción</span>
-                Salón de Eventos "El Gran Palacio"<br>
-                Av. Principal #123, Ciudad
+            <div class="contador-item">
+                <span class="contador-numero" id="horas">00</span>
+                <span class="contador-texto">Horas</span>
             </div>
-            <div class="detalle-item">
-                <span class="detalle-titulo">Código de Vestimenta</span>
-                Formal / Etiqueta
+            <div class="contador-item">
+                <span class="contador-numero" id="minutos">00</span>
+                <span class="contador-texto">Minutos</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="segundos">00</span>
+                <span class="contador-texto">Segundos</span>
             </div>
         </div>
+    </section>
 
-        <!-- Este botón puede dirigir a un formulario de Google o WhatsApp para confirmar asistencia -->
-        <a href="#" class="boton-asistencia">Confirmar Asistencia</a>
-    </div>
+    <!-- SECCIÓN DETALLES (Ceremonia, Recepción, Vestimenta) -->
+    <section class="detalles-seccion">
+        <div class="tarjeta-detalle animar-oculto">
+            <div class="tarjeta-icono">⛪</div>
+            <h3 class="tarjeta-titulo">Ceremonia Religiosa</h3>
+            <p class="tarjeta-texto">
+                <strong>19:00 Hrs</strong><br>
+                Parroquia de San Miguel Arcángel<br>
+                Av. de las Rosas 456, Centro Histórico.
+            </p>
+            <a href="https://maps.google.com" target="_blank" class="btn">Ver Mapa</a>
+        </div>
 
+        <div class="tarjeta-detalle animar-oculto" style="transition-delay: 0.2s;">
+            <div class="tarjeta-icono">🥂</div>
+            <h3 class="tarjeta-titulo">Recepción</h3>
+            <p class="tarjeta-texto">
+                <strong>20:30 Hrs</strong><br>
+                Jardín de Eventos "El Ensueño"<br>
+                Km 12 Carretera Norte, Zona Esmeralda.
+            </p>
+            <a href="https://maps.google.com" target="_blank" class="btn">Ver Mapa</a>
+        </div>
+
+        <div class="tarjeta-detalle animar-oculto" style="transition-delay: 0.4s;">
+            <div class="tarjeta-icono">👗</div>
+            <h3 class="tarjeta-titulo">Dress Code</h3>
+            <p class="tarjeta-texto">
+                <strong>Formal / Etiqueta</strong><br>
+                Me encantaría que me acompañen luciendo espectaculares.<br>
+                <em>(Se reserva el uso del color rosa para la quinceañera).</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ITINERARIO -->
+    <section class="itinerario-seccion">
+        <h2 class="titulo-seccion animar-oculto">Nuestro Día</h2>
+        <div class="timeline">
+            <div class="timeline-item animar-oculto">
+                <div class="timeline-punto"></div>
+                <div class="timeline-hora">19:00 hrs</div>
+                <div class="timeline-contenido">
+                    <h4>Ceremonia</h4>
+                    <p>Misa de acción de gracias.</p>
+                </div>
+            </div>
+            <div class="timeline-item animar-oculto">
+                <div class="timeline-punto"></div>
+                <div class="timeline-hora">20:30 hrs</div>
+                <div class="timeline-contenido">
+                    <h4>Recepción y Cóctel</h4>
+                    <p>Llegada al salón y toma de fotografías.</p>
+                </div>
+            </div>
+            <div class="timeline-item animar-oculto">
+                <div class="timeline-punto"></div>
+                <div class="timeline-hora">21:30 hrs</div>
+                <div class="timeline-contenido">
+                    <h4>Vals y Brindis</h4>
+                    <p>El momento más mágico de la noche.</p>
+                </div>
+            </div>
+            <div class="timeline-item animar-oculto">
+                <div class="timeline-punto"></div>
+                <div class="timeline-hora">22:00 hrs</div>
+                <div class="timeline-contenido">
+                    <h4>Cena y Fiesta</h4>
+                    <p>¡A disfrutar y bailar toda la noche!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN RSVP -->
+    <section class="contador-seccion" style="background-color: var(--color-fondo); border-top: 1px solid #e0e0e0;">
+        <h2 class="titulo-seccion animar-oculto" style="margin-bottom: 20px;">Asistencia</h2>
+        <p class="animar-oculto" style="margin-bottom: 30px; font-size: 1.1rem;">
+            Tu presencia es mi mejor regalo. Por favor confirma antes del 15 de Julio de 2026.
+        </p>
+        <!-- Reemplaza el número de WhatsApp en el enlace -->
+        <a href="https://wa.me/1234567890?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Sofía." target="_blank" class="btn animar-oculto">Confirmar por WhatsApp</a>
+    </section>
+
+    <!-- SCRIPTS -->
     <script>
-        // Lógica para capturar el parámetro de la URL
         document.addEventListener('DOMContentLoaded', function() {
-            // Obtener la URL actual y buscar los parámetros
+            
+            // 1. LÓGICA DEL NOMBRE DE LA FAMILIA EN LA URL
             const parametrosURL = new URLSearchParams(window.location.search);
-            
-            // Buscar si existe el parámetro 'familia'
             const nombreFamilia = parametrosURL.get('familia');
-            
-            // Seleccionar el elemento HTML donde va el saludo
             const elementoSaludo = document.getElementById('saludo-familia');
             
-            // Si el parámetro existe en la URL, actualizar el texto
             if (nombreFamilia) {
-                // Reemplazamos guiones bajos por espacios para que se vea mejor (ej: Perez_Gomez)
                 const nombreFormateado = nombreFamilia.replace(/_/g, ' ');
                 elementoSaludo.textContent = `Familia ${nombreFormateado}`;
             }
-            // Si no hay parámetro, se queda el texto por defecto que pusimos en el HTML ("Queridos Invitados")
+
+            // 2. LÓGICA DE LA CUENTA REGRESIVA (1 de Agosto de 2026, 19:00)
+            const fechaEvento = new Date("August 1, 2026 19:00:00").getTime();
+
+            const actualizarContador = setInterval(function() {
+                const ahora = new Date().getTime();
+                const diferencia = fechaEvento - ahora;
+
+                // Cálculos de tiempo
+                const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+                // Imprimir resultados en pantalla asegurando 2 dígitos (ej: 09 en vez de 9)
+                document.getElementById("dias").innerHTML = dias < 10 ? '0' + dias : dias;
+                document.getElementById("horas").innerHTML = horas < 10 ? '0' + horas : horas;
+                document.getElementById("minutos").innerHTML = minutos < 10 ? '0' + minutos : minutos;
+                document.getElementById("segundos").innerHTML = segundos < 10 ? '0' + segundos : segundos;
+
+                // Si la fecha ya pasó
+                if (diferencia < 0) {
+                    clearInterval(actualizarContador);
+                    document.getElementById("dias").innerHTML = "00";
+                    document.getElementById("horas").innerHTML = "00";
+                    document.getElementById("minutos").innerHTML = "00";
+                    document.getElementById("segundos").innerHTML = "00";
+                }
+            }, 1000);
+
+            // 3. ANIMACIONES AL HACER SCROLL
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('animar-visible');
+                    }
+                });
+            }, { threshold: 0.1 }); // Se activa cuando el 10% del elemento es visible
+
+            const elementosOcultos = document.querySelectorAll('.animar-oculto');
+            elementosOcultos.forEach((el) => observador.observe(el));
         });
     </script>
-
 </body>
 </html>
