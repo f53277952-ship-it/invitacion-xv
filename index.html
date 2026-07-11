@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Invitación</title>
+    <!-- Importando fuentes elegantes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-principal: #fce4ec; /* Rosa muy claro */
+            --color-secundario: #d81b60; /* Rosa oscuro/magenta */
+            --color-dorado: #d4af37; /* Dorado para detalles */
+            --color-texto: #4a4a4a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-principal);
+            font-family: 'Playfair Display', serif;
+            color: var(--color-texto);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .invitacion-container {
+            background-color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid var(--color-dorado);
+            position: relative;
+        }
+
+        /* Adornos decorativos en las esquinas */
+        .invitacion-container::before,
+        .invitacion-container::after {
+            content: "❀";
+            position: absolute;
+            font-size: 30px;
+            color: var(--color-dorado);
+        }
+
+        .invitacion-container::before {
+            top: 15px;
+            left: 20px;
+        }
+
+        .invitacion-container::after {
+            bottom: 15px;
+            right: 20px;
+        }
+
+        .titulo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--color-secundario);
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-dorado);
+            margin-bottom: 30px;
+        }
+
+        .saludo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-secundario);
+        }
+
+        .mensaje {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .detalles {
+            border-top: 1px solid var(--color-dorado);
+            border-bottom: 1px solid var(--color-dorado);
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .detalle-item {
+            margin-bottom: 15px;
+        }
+
+        .detalle-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detalle-titulo {
+            font-weight: 700;
+            color: var(--color-secundario);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .boton-asistencia {
+            display: inline-block;
+            background-color: var(--color-secundario);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-asistencia:hover {
+            background-color: var(--color-dorado);
+        }
+
+        /* Animación de entrada */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .titulo {
+                font-size: 2.8rem;
+            }
+            .saludo {
+                font-size: 1.3rem;
+            }
+            .invitacion-container {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitacion-container fade-in">
+        <h1 class="titulo">Mis XV Años</h1>
+        <div class="subtitulo">Sofía Valentina</div> <!-- Aquí puedes poner el nombre de la quinceañera -->
+
+        <!-- Aquí es donde aparecerá el nombre de la familia dinámicamente -->
+        <div class="saludo" id="saludo-familia">Queridos Invitados</div>
+
+        <p class="mensaje">
+            Hay momentos en la vida que imaginamos, soñamos y esperamos con gran ilusión. 
+            Me encantaría compartir este día tan especial y mágico con ustedes.
+        </p>
+
+        <div class="detalles">
+            <div class="detalle-item">
+                <span class="detalle-titulo">¿Cuándo?</span>
+                Sábado, 15 de Agosto de 2026 a las 19:00 hrs.
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-titulo">Ceremonia y Recepción</span>
+                Salón de Eventos "El Gran Palacio"<br>
+                Av. Principal #123, Ciudad
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-titulo">Código de Vestimenta</span>
+                Formal / Etiqueta
+            </div>
+        </div>
+
+        <!-- Este botón puede dirigir a un formulario de Google o WhatsApp para confirmar asistencia -->
+        <a href="#" class="boton-asistencia">Confirmar Asistencia</a>
+    </div>
+
+    <script>
+        // Lógica para capturar el parámetro de la URL
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener la URL actual y buscar los parámetros
+            const parametrosURL = new URLSearchParams(window.location.search);
+            
+            // Buscar si existe el parámetro 'familia'
+            const nombreFamilia = parametrosURL.get('familia');
+            
+            // Seleccionar el elemento HTML donde va el saludo
+            const elementoSaludo = document.getElementById('saludo-familia');
+            
+            // Si el parámetro existe en la URL, actualizar el texto
+            if (nombreFamilia) {
+                // Reemplazamos guiones bajos por espacios para que se vea mejor (ej: Perez_Gomez)
+                const nombreFormateado = nombreFamilia.replace(/_/g, ' ');
+                elementoSaludo.textContent = `Familia ${nombreFormateado}`;
+            }
+            // Si no hay parámetro, se queda el texto por defecto que pusimos en el HTML ("Queridos Invitados")
+        });
+    </script>
+
+</body>
+</html>
