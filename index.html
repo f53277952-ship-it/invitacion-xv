@@ -52,32 +52,16 @@
             100% { transform: scale(0.95); opacity: 0.7; }
         }
 
-        /* --- 2. BARRA DE NAVEGACIÓN INFERIOR (MÓVIL) --- */
-        .barra-inferior {
-            display: none; position: fixed; bottom: 0; left: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            z-index: 10000; border-top: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
-            padding: 10px 0 15px 0;
-        }
-
-        .barra-inferior a {
-            flex: 1; text-align: center; text-decoration: none; color: var(--color-secundario);
-            font-size: 1.2rem; display: flex; flex-direction: column; align-items: center; gap: 4px;
-        }
-
-        .barra-inferior a span { font-size: 0.65rem; font-family: 'Montserrat', sans-serif; font-weight: 500; text-transform: uppercase; }
-
-        /* --- ORDENAMIENTO DINÁMICO POR DISPOSITIVO (Controlado por JS) --- */
+        /* --- ORDENAMIENTO DINÁMICO POR DISPOSITIVO --- */
         body.vista-movil .detalles-seccion,
-        body.vista-movil .contenedor-unificado { display: flex; flex-direction: column; gap: 30px; }
-        body.vista-tablet .detalles-seccion { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 40px; }
+        body.vista-movil .contenedor-unificado { display: flex; flex-direction: column; gap: 20px; }
+        body.vista-tablet .detalles-seccion { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 30px; }
         body.vista-tablet .tarjeta-detalle { flex: 1 1 45%; }
         body.vista-escritorio .detalles-seccion { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         body.vista-escritorio .contenedor-unificado { display: grid; grid-template-columns: 1fr 1.2fr; }
         body.vista-escritorio .bloque-pago { border-bottom: none; border-right: 1px solid rgba(255, 255, 255, 0.1); }
 
-        /* --- EFECTO DE PARTÍCULAS (Z-index reducido) --- */
+        /* --- EFECTO DE PARTÍCULAS --- */
         #particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; overflow: hidden; }
         .petalo { position: absolute; top: -10%; background-color: rgba(232, 178, 193, 0.4); border-radius: 50% 0 50% 0; width: 15px; height: 15px; box-shadow: 0 0 10px rgba(232, 178, 193, 0.2); animation: caer linear infinite; }
         @keyframes caer { 0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg) scale(0.5); opacity: 0; } }
@@ -96,9 +80,9 @@
         .hero-fecha { font-size: 1.6rem; font-weight: 400; letter-spacing: 3px; color: var(--color-dorado); text-transform: uppercase; }
 
         /* --- SECCIÓN HISTORIA --- */
-        .historia-seccion { padding: 100px 20px; background-color: var(--color-fondo); text-align: center; }
+        .historia-seccion { padding: 80px 20px; background-color: var(--color-fondo); text-align: center; }
         .historia-contenedor { max-width: 900px; margin: 0 auto; background: var(--cristal); padding: 50px; border-radius: 20px; box-shadow: var(--sombra-elegante); border: 1px solid rgba(212, 175, 55, 0.2); }
-        .historia-foto { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid var(--color-dorado); margin: 0 auto 30px auto; display: block; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .historia-foto { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid var(--color-dorado); margin: 0 auto 25px auto; display: block; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .titulo-seccion { font-size: 3rem; color: var(--color-dorado); margin-bottom: 20px; font-weight: 600; text-align: center; }
         .texto-emotivo { font-size: 1.1rem; line-height: 1.8; color: var(--color-secundario); font-style: italic; }
 
@@ -106,24 +90,24 @@
         .calendario-seccion { padding: 40px 20px 80px 20px; background-color: var(--color-fondo); text-align: center; }
         .calendario-contenedor { max-width: 350px; margin: 0 auto; background: var(--color-blanco); padding: 30px; border-radius: 15px; box-shadow: var(--sombra-elegante); border: 1px solid rgba(212, 175, 55, 0.2); }
         .calendario-mes { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--color-principal-oscuro); margin-bottom: 20px; font-weight: 600; }
-        .dias-semana { display: grid; grid-template-columns: repeat(7, 1fr); font-weight: 600; color: var(--color-dorado); margin-bottom: 15px; }
-        .dias-mes { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
-        .dias-mes span { display: flex; justify-content: center; align-items: center; height: 35px; width: 35px; margin: 0 auto; font-size: 0.95rem; color: var(--color-secundario); }
+        .dias-semana { display: grid; grid-template-columns: repeat(7, 1fr); font-weight: 600; color: var(--color-dorado); margin-bottom: 15px; font-size: 0.9rem; }
+        .dias-mes { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        .dias-mes span { display: flex; justify-content: center; align-items: center; height: 35px; width: 35px; margin: 0 auto; font-size: 0.9rem; color: var(--color-secundario); }
         .dia-evento { background-color: var(--color-principal); color: var(--color-blanco) !important; border-radius: 50%; font-weight: bold; box-shadow: 0 4px 10px rgba(232, 178, 193, 0.6); transform: scale(1.1); }
 
         /* --- CUENTA REGRESIVA PRINCIPAL --- */
         .contador-seccion { background-color: var(--color-blanco); padding: 80px 20px; text-align: center; background-image: radial-gradient(var(--color-principal) 1px, transparent 1px); background-size: 40px 40px; }
-        .contador-contenedor { display: flex; justify-content: center; gap: 25px; max-width: 800px; margin: 0 auto; }
-        .contador-item { background: var(--cristal); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 15px; padding: 25px 20px; min-width: 110px; box-shadow: var(--sombra-elegante); }
-        .contador-numero { font-size: 3rem; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-principal-oscuro); display: block; margin-bottom: 5px; }
-        .contador-texto { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-secundario); font-weight: 600; }
+        .contador-contenedor { display: flex; justify-content: center; gap: 20px; max-width: 800px; margin: 0 auto; }
+        .contador-item { background: var(--cristal); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 15px; padding: 20px 15px; min-width: 90px; box-shadow: var(--sombra-elegante); }
+        .contador-numero { font-size: 2.8rem; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-principal-oscuro); display: block; margin-bottom: 5px; }
+        .contador-texto { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-secundario); font-weight: 600; }
 
         /* --- GALERÍA ESTILO INSTAGRAM --- */
-        .galeria-seccion { padding: 100px 20px; background-color: var(--color-fondo); text-align: center; }
+        .galeria-seccion { padding: 80px 20px; background-color: var(--color-fondo); text-align: center; }
         .galeria-ig { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-        .foto-principal img { width: 100%; height: 400px; object-fit: cover; border-radius: 15px 15px 0 0; cursor: pointer; }
+        .foto-principal img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px 15px 0 0; cursor: pointer; }
         .fotos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .fotos-grid img { width: 100%; height: 250px; object-fit: cover; cursor: pointer; transition: filter 0.3s; }
+        .fotos-grid img { width: 100%; height: 200px; object-fit: cover; cursor: pointer; transition: filter 0.3s; }
         .fotos-grid img:last-child { border-radius: 0 0 15px 0; }
         .fotos-grid img:nth-child(4) { border-radius: 0 0 0 15px; }
         .galeria-ig img:hover { filter: brightness(0.8); }
@@ -133,96 +117,108 @@
         .cerrar-lightbox { color: white; font-size: 2.5rem; position: absolute; top: 20px; right: 40px; cursor: pointer; }
 
         /* --- DETALLES Y UBICACIONES --- */
-        .detalles-seccion { padding: 100px 20px; max-width: 1000px; margin: 0 auto; }
-        .tarjeta-detalle { background: var(--color-blanco); padding: 50px 30px; border-radius: 20px; text-align: center; box-shadow: var(--sombra-elegante); transition: transform 0.4s ease; border: 1px solid rgba(212, 175, 55, 0.2); width: 100%; }
-        .icono-svg { width: 60px; height: 60px; fill: var(--color-dorado); margin-bottom: 20px; }
-        .tarjeta-titulo { font-size: 2rem; color: var(--color-principal-oscuro); margin-bottom: 15px; }
-        .tarjeta-texto { line-height: 1.6; margin-bottom: 25px; }
+        .detalles-seccion { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
+        .tarjeta-detalle { background: var(--color-blanco); padding: 40px 20px; border-radius: 20px; text-align: center; box-shadow: var(--sombra-elegante); transition: transform 0.4s ease; border: 1px solid rgba(212, 175, 55, 0.2); width: 100%; }
+        .icono-svg { width: 50px; height: 50px; fill: var(--color-dorado); margin-bottom: 20px; }
+        .tarjeta-titulo { font-size: 1.8rem; color: var(--color-principal-oscuro); margin-bottom: 15px; }
+        .tarjeta-texto { line-height: 1.6; margin-bottom: 25px; font-size: 0.95rem; }
 
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--color-dorado); color: var(--color-blanco); text-decoration: none; padding: 15px 35px; border-radius: 30px; font-weight: 600; letter-spacing: 1px; transition: all 0.3s ease; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 1rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--color-dorado); color: var(--color-blanco); text-decoration: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; letter-spacing: 1px; transition: all 0.3s ease; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; }
         .btn-outline { background-color: transparent; border: 2px solid var(--color-dorado); color: var(--color-dorado); }
         .btn:hover { background-color: var(--color-secundario); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); color: white; border-color: var(--color-secundario); }
 
         /* --- CÓDIGO DE VESTIMENTA --- */
-        .vestimenta-seccion { padding: 80px 20px; background-color: var(--color-fondo); text-align: center; }
-        .texto-vestimenta { font-size: 1.5rem; font-weight: 500; color: var(--color-secundario); margin-top: 10px; }
-        .nota-reservada { margin-top: 30px; padding: 20px; background: rgba(232, 178, 193, 0.2); border-left: 4px solid var(--color-principal-oscuro); display: inline-block; border-radius: 0 10px 10px 0; max-width: 600px; line-height: 1.6; }
-
-        /* --- CONFIRMACIÓN Y PAGO (MEJORADO) --- */
-        .confirmacion-seccion { background-color: #2c2c2c; color: var(--color-blanco); padding: 100px 20px; text-align: center; }
-        .confirmacion-seccion .titulo-seccion { color: var(--color-dorado); }
-        .etiqueta-admision { display: inline-block; background-color: var(--color-dorado); color: #000; padding: 8px 25px; border-radius: 30px; font-weight: 600; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
-        
-        .contenedor-unificado { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; max-width: 1000px; margin: 0 auto; backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        
-        /* Bloque Pago */
-        .bloque-pago { padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .valor-cuota { font-size: 4rem; font-family: 'Playfair Display', serif; color: var(--color-principal); margin: 10px 0; display: block; }
-        .beneficios-lista { text-align: left; margin: 20px 0; color: #ddd; font-size: 0.95rem; line-height: 1.8; }
-        
-        .qr-pago { margin-top: 20px; padding: 20px; background: white; border-radius: 15px; display: inline-block; }
-        .qr-pago img { width: 150px; height: 150px; }
-        .qr-pago p { color: #000; font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; }
-        
-        .datos-bancarios { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 10px; margin-top: 20px; text-align: left; font-size: 1rem; color: #eee; width: 100%; box-sizing: border-box; }
-        .btn-copiar { background: transparent; color: var(--color-dorado); border: 1px solid var(--color-dorado); padding: 5px 15px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; transition: all 0.3s; margin-left: 10px; font-family: 'Montserrat', sans-serif; }
-        .btn-copiar:hover { background: var(--color-dorado); color: #000; }
-
-        /* Bloque Formulario */
-        .bloque-formulario { padding: 40px; background: rgba(0, 0, 0, 0.2); position: relative; }
-        .form-grupo { margin-bottom: 25px; text-align: left; }
-        .form-label { display: block; margin-bottom: 8px; font-weight: 500; color: #ddd; }
-        .form-input, .form-textarea { width: 100%; padding: 15px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: var(--color-blanco); transition: border-color 0.3s ease; }
-        .form-input::placeholder, .form-textarea::placeholder { color: #888; }
-        .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--color-dorado); }
-        .form-textarea { resize: vertical; min-height: 100px; }
-
-        /* CRONÓMETRO LÍMITE (Una fila) */
-        .rsvp-countdown { background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 10px; padding: 15px; margin-bottom: 30px; text-align: center; }
-        .rsvp-countdown p { font-size: 0.9rem; color: var(--color-dorado); margin-bottom: 5px; text-transform: uppercase; font-weight: 600; }
-        .rsvp-reloj { font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: bold; color: var(--color-blanco); white-space: nowrap; }
+        .vestimenta-seccion { padding: 60px 20px; background-color: var(--color-fondo); text-align: center; }
+        .texto-vestimenta { font-size: 1.3rem; font-weight: 500; color: var(--color-secundario); margin-top: 10px; }
+        .nota-reservada { margin-top: 25px; padding: 15px; background: rgba(232, 178, 193, 0.2); border-left: 4px solid var(--color-principal-oscuro); display: inline-block; border-radius: 0 10px 10px 0; max-width: 600px; line-height: 1.5; font-size: 0.9rem; }
 
         /* --- LIBRO DE RECUERDOS --- */
         .libro-recuerdos { padding: 80px 20px; background-color: var(--color-blanco); text-align: center; }
         .libro-form { max-width: 600px; margin: 0 auto; text-align: left; background: var(--color-fondo); padding: 40px; border-radius: 15px; border: 1px solid #eee; box-shadow: var(--sombra-elegante); }
         .libro-form .form-label { color: var(--color-secundario); }
         .libro-form .form-input, .libro-form .form-textarea { background: white; border-color: #ddd; color: #000; }
+        .form-textarea { resize: vertical; min-height: 100px; }
+
+        /* --- CONFIRMACIÓN Y PAGO --- */
+        .confirmacion-seccion { background-color: #2c2c2c; color: var(--color-blanco); padding: 80px 20px; text-align: center; }
+        .confirmacion-seccion .titulo-seccion { color: var(--color-dorado); }
+        .etiqueta-admision { display: inline-block; background-color: var(--color-dorado); color: #000; padding: 8px 25px; border-radius: 30px; font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+        
+        .contenedor-unificado { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; max-width: 1000px; margin: 0 auto; backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        
+        /* Bloque Pago */
+        .bloque-pago { padding: 40px 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .valor-cuota { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--color-principal); margin: 5px 0 15px 0; display: block; }
+        .beneficios-lista { text-align: left; margin: 15px 0; color: #ddd; font-size: 0.9rem; line-height: 1.8; }
+        
+        .qr-pago { margin-top: 15px; padding: 15px; background: white; border-radius: 15px; display: inline-block; }
+        .qr-pago img { width: 130px; height: 130px; }
+        .qr-pago p { color: #000; font-weight: bold; margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase; }
+        
+        .datos-bancarios { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-top: 20px; text-align: left; font-size: 0.95rem; color: #eee; width: 100%; box-sizing: border-box; }
+        
+        /* Botón Copiar ajustado con Flexbox para que no salte de línea */
+        .contenedor-cuenta { display: inline-flex; align-items: center; flex-wrap: nowrap; margin-top: 4px; margin-bottom: 4px; }
+        .btn-copiar { background: transparent; color: var(--color-dorado); border: 1px solid var(--color-dorado); padding: 4px 12px; border-radius: 15px; font-size: 0.75rem; cursor: pointer; transition: all 0.3s; margin-left: 10px; font-family: 'Montserrat', sans-serif; white-space: nowrap; }
+        .btn-copiar:hover { background: var(--color-dorado); color: #000; }
+
+        /* Bloque Formulario */
+        .bloque-formulario { padding: 40px 30px; background: rgba(0, 0, 0, 0.2); position: relative; }
+        .form-grupo { margin-bottom: 20px; text-align: left; }
+        .form-label { display: block; margin-bottom: 6px; font-weight: 500; color: #ddd; font-size: 0.95rem; }
+        .form-input { width: 100%; padding: 12px 15px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: var(--color-blanco); transition: border-color 0.3s ease; }
+        .form-input::placeholder { color: #888; }
+        .form-input:focus { outline: none; border-color: var(--color-dorado); }
+
+        /* CRONÓMETRO LÍMITE RSVP (Mismo estilo de cajas, paleta dorada/oscura) */
+        .rsvp-countdown { margin-bottom: 25px; text-align: center; }
+        .rsvp-countdown p { font-size: 0.85rem; color: var(--color-dorado); margin-bottom: 10px; text-transform: uppercase; font-weight: 600; }
+        .rsvp-item { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px); border: 1px solid var(--color-dorado); border-radius: 10px; padding: 12px 10px; min-width: 65px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .rsvp-numero { font-size: 1.8rem; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-dorado); margin-bottom: 2px; line-height: 1; }
+        .rsvp-texto { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: #ccc; font-weight: 500; }
 
         /* --- MODAL EMERGENTE WHATSAPP --- */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 10000; backdrop-filter: blur(5px); justify-content: center; align-items: center; }
-        .modal-contenido { background: var(--color-fondo); padding: 40px; border-radius: 20px; text-align: center; max-width: 400px; width: 90%; border: 2px solid var(--color-dorado); box-shadow: 0 10px 40px rgba(0,0,0,0.5); color: var(--color-secundario); position: relative; animation: deslizarArriba 0.4s ease-out; }
+        .modal-contenido { background: var(--color-fondo); padding: 30px; border-radius: 20px; text-align: center; max-width: 350px; width: 90%; border: 2px solid var(--color-dorado); box-shadow: 0 10px 40px rgba(0,0,0,0.5); color: var(--color-secundario); position: relative; animation: deslizarArriba 0.4s ease-out; }
         @keyframes deslizarArriba { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .modal-icono { font-size: 3rem; margin-bottom: 15px; }
-        .modal-titulo { font-size: 1.8rem; color: var(--color-principal-oscuro); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
-        .modal-texto { margin-bottom: 25px; line-height: 1.6; }
+        .modal-icono { font-size: 2.5rem; margin-bottom: 10px; }
+        .modal-titulo { font-size: 1.5rem; color: var(--color-principal-oscuro); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        .modal-texto { margin-bottom: 20px; line-height: 1.5; font-size: 0.95rem; }
 
         /* --- RESPONSIVE DESIGN AVANZADO --- */
         @media (max-width: 768px) {
-            body { padding-bottom: 75px; /* Espacio para barra inferior */ }
-            .barra-inferior { display: flex; }
-            .btn-musica { bottom: 90px; right: 20px; } /* Sube el botón de música */
+            .detalles-seccion, .historia-seccion, .confirmacion-seccion, .galeria-seccion, .libro-recuerdos { padding: 60px 15px; }
+            .historia-contenedor, .tarjeta-detalle, .bloque-pago, .bloque-formulario, .libro-form, .calendario-contenedor { padding: 30px 20px; }
             
             .hero-titulo { font-size: 4rem; }
             .hero-saludo { font-size: 1.4rem; padding: 12px 25px; }
             .titulo-seccion { font-size: 2.3rem; }
-            .historia-contenedor, .contenedor-unificado, .tarjeta-detalle, .libro-form { padding: 30px 20px; }
             .valor-cuota { font-size: 3rem; }
             
             /* Galería Móvil */
             .fotos-grid { grid-template-columns: repeat(2, 1fr); }
-            .fotos-grid img:nth-child(3) { display: none; /* Oculta una foto para mantener simetría par en móvil */ }
+            .fotos-grid img:nth-child(3) { display: none; }
             .fotos-grid img:nth-child(4) { border-radius: 0 0 15px 0; }
         }
 
-        /* --- OPTIMIZACIÓN CRONÓMETRO (1 FILA MÓVIL) --- */
+        /* --- OPTIMIZACIÓN EXTREMA CELULARES (1 Fila para Cronómetros y Ajuste de Márgenes) --- */
         @media (max-width: 480px) {
+            .hero-titulo { font-size: 3.5rem; }
+            .titulo-seccion { font-size: 2rem; }
+            .historia-contenedor, .tarjeta-detalle, .bloque-pago, .bloque-formulario, .libro-form, .calendario-contenedor { padding: 25px 15px; }
+            
+            /* Cronómetros forzados a una fila */
             .contador-contenedor { flex-wrap: nowrap; gap: 6px; }
-            .contador-item { min-width: auto; width: 23%; padding: 15px 5px; }
+            .contador-item, .rsvp-item { min-width: auto; width: 23%; padding: 12px 5px; }
+            
             .contador-numero { font-size: 1.6rem; }
             .contador-texto { font-size: 0.55rem; letter-spacing: 0; }
+            
+            .rsvp-numero { font-size: 1.4rem; }
+            .rsvp-texto { font-size: 0.5rem; letter-spacing: 0; }
         }
         
-        .animar-oculto { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .animar-oculto { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .animar-visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -243,14 +239,6 @@
 
     <!-- SISTEMA DE PARTÍCULAS -->
     <div id="particles-container"></div>
-
-    <!-- BARRA INFERIOR (Solo Móvil) -->
-    <nav class="barra-inferior">
-        <a href="#inicio">🏠<span>Inicio</span></a>
-        <a href="#lugar">📍<span>Lugar</span></a>
-        <a href="#pago">💳<span>Pago</span></a>
-        <a href="#confirmar">💌<span>Confirmar</span></a>
-    </nav>
 
     <!-- SECCIÓN HERO -->
     <header class="hero">
@@ -293,7 +281,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CUENTA REGRESIVA -->
+    <!-- SECCIÓN CUENTA REGRESIVA PRINCIPAL -->
     <section class="contador-seccion">
         <h2 class="titulo-seccion animar-oculto">El gran día se acerca</h2>
         <div class="contador-contenedor animar-oculto">
@@ -308,11 +296,9 @@
     <section class="galeria-seccion">
         <h2 class="titulo-seccion animar-oculto">Mis momentos especiales</h2>
         <div class="galeria-ig animar-oculto">
-            <!-- Foto principal grande -->
             <div class="foto-principal">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="galeria-img" alt="Foto Principal">
             </div>
-            <!-- Grid de miniaturas -->
             <div class="fotos-grid">
                 <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="galeria-img" alt="Foto 2">
                 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="galeria-img" alt="Foto 3">
@@ -330,17 +316,16 @@
         <img id="lightbox-img" src="" alt="Vista ampliada">
     </div>
 
-    <!-- SECCIÓN DETALLES (Anclaje: lugar) -->
-    <section class="detalles-seccion" id="lugar">
+    <!-- SECCIÓN DETALLES -->
+    <section class="detalles-seccion">
         <div class="tarjeta-detalle animar-oculto">
             <svg class="icono-svg" viewBox="0 0 24 24"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm0 2.8l5 5V18H7v-8.2l5-5z M11 11h2v4h-2z"/></svg>
             <h3 class="tarjeta-titulo">Ceremonia Religiosa</h3>
             <p class="tarjeta-texto">
                 <strong>19:00 Hrs</strong><br>Parroquia de San Miguel Arcángel<br>Av. de las Rosas 456.
             </p>
-            <a href="https://maps.google.com/?q=Parroquia+San+Miguel+Arcangel" target="_blank" class="btn" style="margin-bottom: 10px;">Abrir en Google Maps</a><br>
-            <!-- BOTÓN AGREGAR AL CALENDARIO -->
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+-+Sof%C3%ADa+Valentina&dates=20260801T190000/20260802T020000&details=Celebra+conmigo+este+d%C3%ADa+tan+especial.&location=Parroquia+de+San+Miguel+Arc%C3%A1ngel" target="_blank" class="btn btn-outline">📅 Guardar en Calendario</a>
+            <a href="https://maps.google.com/?q=Parroquia+San+Miguel+Arcangel" target="_blank" class="btn" style="margin-bottom: 10px; width: 100%;">Abrir en Google Maps</a><br>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+-+Sof%C3%ADa+Valentina&dates=20260801T190000/20260802T020000&details=Celebra+conmigo+este+d%C3%ADa+tan+especial.&location=Parroquia+de+San+Miguel+Arc%C3%A1ngel" target="_blank" class="btn btn-outline" style="width: 100%;">📅 Guardar en Calendario</a>
         </div>
 
         <div class="tarjeta-detalle animar-oculto" style="transition-delay: 0.2s;">
@@ -349,7 +334,7 @@
             <p class="tarjeta-texto">
                 <strong>20:30 Hrs</strong><br>Jardín de Eventos "El Ensueño"<br>Km 12 Carretera Norte.
             </p>
-            <a href="https://maps.google.com/?q=Jardin+El+Ensueno" target="_blank" class="btn">Abrir en Google Maps</a>
+            <a href="https://maps.google.com/?q=Jardin+El+Ensueno" target="_blank" class="btn" style="width: 100%;">Abrir en Google Maps</a>
         </div>
     </section>
 
@@ -363,7 +348,7 @@
     </section>
 
     <!-- LIBRO DE RECUERDOS -->
-    <section class="libro-recuerdos" id="dedicatorias">
+    <section class="libro-recuerdos">
         <h2 class="titulo-seccion animar-oculto">💌 Dedicatorias</h2>
         <p class="animar-oculto" style="margin-bottom: 30px;">Déjale un mensaje especial a Sofía para que lo guarde como recuerdo.</p>
         
@@ -380,15 +365,15 @@
         </form>
     </section>
 
-    <!-- SECCIÓN CONFIRMACIÓN UNIFICADA (Anclajes: pago y confirmar) -->
-    <section class="confirmacion-seccion" id="pago">
+    <!-- SECCIÓN CONFIRMACIÓN UNIFICADA -->
+    <section class="confirmacion-seccion">
         <h2 class="titulo-seccion animar-oculto">Confirmación y Asistencia</h2>
         <div class="etiqueta-admision animar-oculto">Admisión: 2 Personas</div>
 
         <div class="contenedor-unificado animar-oculto">
             <!-- Bloque de Pago Premium -->
             <div class="bloque-pago">
-                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; text-transform: uppercase; color: #ccc;">Valor de entrada</h3>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; text-transform: uppercase; color: #ccc;">Cuota</h3>
                 <span class="valor-cuota">$20</span>
                 
                 <div class="beneficios-lista">
@@ -400,27 +385,31 @@
 
                 <div class="qr-pago">
                     <p>Escanea para pagar</p>
-                    <!-- Reemplaza "2200000000" con tu número real para generar el QR o cambia la URL de la imagen por tu propio QR -->
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=2200000000" alt="QR Banco">
                 </div>
                 
                 <div class="datos-bancarios">
                     <p><strong>Banco Pichincha</strong><br>
-                    Cuenta de Ahorros: <span id="num-cuenta">2200000000</span>
-                    <button class="btn-copiar" onclick="copiarCuenta()">Copiar</button><br>
+                    <span class="contenedor-cuenta">
+                        Cuenta de Ahorros: <span id="num-cuenta" style="margin-left: 5px; font-weight: 600;">2200000000</span>
+                        <button type="button" class="btn-copiar" onclick="copiarCuenta()">Copiar</button>
+                    </span><br>
                     Nombre: María Sofía Pérez<br>
                     CI: 0999999999</p>
                 </div>
             </div>
 
             <!-- Bloque de Formulario Integrado -->
-            <div class="bloque-formulario" id="confirmar">
+            <div class="bloque-formulario">
                 
-                <!-- Cronómetro Límite de Confirmación Compacto -->
+                <!-- Cronómetro Límite (Estilo Cajas Doradas) -->
                 <div class="rsvp-countdown" id="rsvp-container">
                     <p>Confirmar antes de:</p>
-                    <div class="rsvp-reloj" id="rsvp-reloj">
-                        <span id="r-dias">00</span>d <span id="r-horas">00</span>h <span id="r-min">00</span>m <span id="r-seg">00</span>s
+                    <div class="contador-contenedor" style="gap: 10px; margin-top: 15px;">
+                        <div class="rsvp-item"><span class="rsvp-numero" id="r-dias">00</span><span class="rsvp-texto">Días</span></div>
+                        <div class="rsvp-item"><span class="rsvp-numero" id="r-horas">00</span><span class="rsvp-texto">Horas</span></div>
+                        <div class="rsvp-item"><span class="rsvp-numero" id="r-min">00</span><span class="rsvp-texto">Minutos</span></div>
+                        <div class="rsvp-item"><span class="rsvp-numero" id="r-seg">00</span><span class="rsvp-texto">Segundos</span></div>
                     </div>
                 </div>
 
@@ -437,7 +426,7 @@
                         <input type="text" id="nombre2" class="form-input" placeholder="Ej. María Gómez" required>
                     </div>
 
-                    <button type="submit" class="btn" id="btn-enviar-rsvp" style="width: 100%; margin-top: 10px; font-size: 1.1rem; padding: 18px;">
+                    <button type="submit" class="btn" id="btn-enviar-rsvp" style="width: 100%; margin-top: 10px; font-size: 1.1rem; padding: 15px;">
                         Enviar Comprobante 
                     </button>
                 </form>
@@ -452,7 +441,7 @@
             <h3 class="modal-titulo">¡Casi listo!</h3>
             <p class="modal-texto">
                 Serás redirigido a WhatsApp para enviar tu confirmación. <br><br>
-                <strong>Por favor, no olvides adjuntar la foto o captura de tu transferencia</strong> en el chat antes de enviar el mensaje.
+                <strong>Por favor, no olvides adjuntar la foto de tu comprobante</strong> en el chat antes de enviar el mensaje.
             </p>
             <button class="btn" id="btn-continuar-wa" style="width: 100%;">Entendido, continuar</button>
             <button class="btn-outline" onclick="cerrarModal()" style="width: 100%; margin-top: 15px; padding: 10px; border-radius: 30px; cursor: pointer;">Cancelar</button>
@@ -467,10 +456,10 @@
                 const pantallaCarga = document.getElementById('pantalla-carga');
                 pantallaCarga.style.opacity = '0';
                 pantallaCarga.style.visibility = 'hidden';
-            }, 1500); // Desaparece después de 1.5 segundos
+            }, 1500); 
         });
 
-        // 2. EVALUACIÓN DE DISPOSITIVO
+        // 2. EVALUACIÓN DE DISPOSITIVO (Limpiado para centrarse en reordenar tarjetas)
         function adaptarDispositivo() {
             const anchoPantalla = window.innerWidth;
             const body = document.body;
@@ -553,7 +542,7 @@
                 }
             }, 1000);
 
-            // 6. CUENTA REGRESIVA RSVP (Compacta)
+            // 6. CUENTA REGRESIVA RSVP (En cajas)
             const fechaLimiteRSVP = new Date("July 25, 2026 00:00:00").getTime();
             const contadorRSVP = setInterval(function() {
                 const ahora = new Date().getTime();
@@ -561,7 +550,7 @@
 
                 if (diffRSVP < 0) {
                     clearInterval(contadorRSVP);
-                    document.getElementById("rsvp-reloj").innerHTML = "Confirmaciones cerradas.";
+                    document.getElementById("rsvp-container").innerHTML = "<p style='color: var(--color-dorado); font-weight: bold; font-size: 1rem;'>Confirmaciones cerradas.</p>";
                     document.getElementById("btn-enviar-rsvp").disabled = true;
                     document.getElementById("btn-enviar-rsvp").style.background = "#555";
                     document.getElementById("texto-form").style.display = "none";
@@ -583,7 +572,7 @@
                 entradas.forEach((entrada) => {
                     if (entrada.isIntersecting) { entrada.target.classList.add('animar-visible'); }
                 });
-            }, { threshold: 0.15 }); 
+            }, { threshold: 0.1 }); 
             document.querySelectorAll('.animar-oculto').forEach((el) => observador.observe(el));
 
             // 8. PARTÍCULAS
@@ -608,11 +597,11 @@
                 });
             });
 
-            // 10. FORMULARIO DEDICATORIAS (Libro de recuerdos)
+            // 10. FORMULARIO DEDICATORIAS
             const formMensajes = document.getElementById('form-mensajes');
             formMensajes.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const numDedic = "593999999999"; // TU NÚMERO
+                const numDedic = "593999999999"; 
                 const nombreDedic = document.getElementById('mensaje-nombre').value.trim();
                 const textoDedic = document.getElementById('mensaje-texto').value.trim();
                 const msjDedic = `💌 *Nuevo Mensaje en tu Libro de Recuerdos* 💌%0A%0ADe: ${nombreDedic}%0A"${textoDedic}"`;
@@ -630,7 +619,7 @@
                 document.getElementById('modal-whatsapp').style.display = 'flex';
 
                 document.getElementById('btn-continuar-wa').onclick = function() {
-                    const numeroDestino = "593999999999"; // TU NÚMERO
+                    const numeroDestino = "593999999999"; 
                     const mensaje = `¡Hola! Confirmo nuestra asistencia a los XV de Sofía. %0A%0A✨ *Invitados:* ${nom1} y ${nom2}%0A%0A(Aquí adjunto la foto del comprobante de transferencia)`;
                     window.open(`https://wa.me/${numeroDestino}?text=${mensaje}`, '_blank');
                     document.getElementById('modal-whatsapp').style.display = 'none';
@@ -644,7 +633,7 @@
         function copiarCuenta() {
             const numero = document.getElementById('num-cuenta').innerText;
             navigator.clipboard.writeText(numero).then(() => {
-                alert("¡Número de cuenta copiado al portapapeles!");
+                alert("¡Número de cuenta copiado!");
             }).catch(err => console.error('Error al copiar: ', err));
         }
     </script>
