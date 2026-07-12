@@ -38,6 +38,42 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* --- ORDENAMIENTO DINÁMICO POR DISPOSITIVO (Controlado por JS) --- */
+        /* Vista Celular */
+        body.vista-movil .detalles-seccion,
+        body.vista-movil .contenedor-unificado {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        /* Vista Tablet */
+        body.vista-tablet .detalles-seccion {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+        body.vista-tablet .tarjeta-detalle {
+            flex: 1 1 45%;
+        }
+
+        /* Vista Escritorio */
+        body.vista-escritorio .detalles-seccion {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        body.vista-escritorio .contenedor-unificado {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* Divide el pago y formulario lado a lado */
+        }
+        body.vista-escritorio .bloque-pago {
+            border-bottom: none;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         /* --- EFECTO DE PARTÍCULAS --- */
         #particles-container {
             position: fixed;
@@ -253,13 +289,13 @@
         /* --- DETALLES Y UBICACIONES --- */
         .detalles-seccion {
             padding: 100px 20px; max-width: 1000px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px;
         }
 
         .tarjeta-detalle {
             background: var(--color-blanco); padding: 50px 30px; border-radius: 20px;
             text-align: center; box-shadow: var(--sombra-elegante); transition: transform 0.4s ease;
             border: 1px solid rgba(212, 175, 55, 0.2);
+            width: 100%;
         }
 
         .tarjeta-detalle:hover { transform: translateY(-10px); }
@@ -285,7 +321,7 @@
             background-color: var(--color-secundario); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- CÓDIGO DE VESTIMENTA (Simplificado) --- */
+        /* --- CÓDIGO DE VESTIMENTA --- */
         .vestimenta-seccion {
             padding: 80px 20px; background-color: var(--color-fondo); text-align: center;
         }
@@ -316,12 +352,12 @@
 
         .contenedor-unificado {
             background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 20px; max-width: 800px; margin: 0 auto; backdrop-filter: blur(10px);
+            border-radius: 20px; max-width: 1000px; margin: 0 auto; backdrop-filter: blur(10px);
             overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
         .bloque-pago {
-            padding: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
         }
 
         .bloque-formulario {
@@ -336,7 +372,7 @@
         .datos-bancarios {
             background: rgba(255,255,255,0.05); padding: 25px; border-radius: 10px;
             margin-top: 20px; text-align: left; font-size: 1rem; color: #eee;
-            display: inline-block; min-width: 300px; position: relative;
+            display: inline-block; min-width: 100%; position: relative; box-sizing: border-box;
         }
 
         .btn-copiar {
@@ -388,7 +424,7 @@
         .modal-titulo { font-size: 1.8rem; color: var(--color-principal-oscuro); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
         .modal-texto { margin-bottom: 25px; line-height: 1.6; }
 
-        /* --- RESPONSIVE DESIGN --- */
+        /* --- RESPONSIVE DESIGN BÁSICO (Las clases de JS complementan esto) --- */
         @media (max-width: 768px) {
             .hero-titulo { font-size: 4rem; }
             .hero-saludo { font-size: 1.4rem; padding: 12px 25px; }
@@ -403,9 +439,9 @@
 </head>
 <body>
 
-    <!-- MÚSICA DE FONDO -->
+    <!-- MÚSICA DE FONDO (Actualizada a una melodía de piano más suave y relajante) -->
     <audio id="musica-fondo" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3" type="audio/mpeg">
     </audio>
     <button class="btn-musica" id="btn-play" onclick="toggleMusica()">
         <svg id="icono-musica" viewBox="0 0 24 24">
@@ -445,17 +481,15 @@
         </div>
     </section>
 
-    <!-- CALENDARIO VISUAL -->
+    <!-- CALENDARIO VISUAL (Fecha armonizada) -->
     <section class="calendario-seccion">
         <div class="calendario-contenedor animar-oculto">
-            <div class="calendario-mes">Agosto 2026</div>
+            <div class="calendario-mes">Sábado, 1 de Agosto de 2026</div>
             <div class="dias-semana">
                 <span>D</span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span>
             </div>
             <div class="dias-mes">
-                <!-- Espacios vacíos antes del 1 de agosto (que es Sábado) -->
                 <span></span><span></span><span></span><span></span><span></span><span></span>
-                <!-- Día del evento -->
                 <span class="dia-evento">1</span>
                 <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
                 <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
@@ -603,7 +637,29 @@
 
     <!-- SCRIPTS -->
     <script>
-        // 1. REPRODUCCIÓN AUTOMÁTICA DE MÚSICA
+        // 1. EVALUACIÓN Y ADAPTACIÓN DE DISPOSITIVO (IF STATEMENT)
+        function adaptarDispositivo() {
+            const anchoPantalla = window.innerWidth;
+            const body = document.body;
+            
+            // Calculamos qué dispositivo nos visita mediante un IF y asignamos la clase para reordenar
+            if (anchoPantalla <= 480) {
+                // Es un Celular
+                body.className = 'vista-movil';
+            } else if (anchoPantalla > 480 && anchoPantalla <= 1024) {
+                // Es una Tablet
+                body.className = 'vista-tablet';
+            } else {
+                // Es una Computadora/Laptop
+                body.className = 'vista-escritorio';
+            }
+        }
+        
+        // Ejecutamos el cálculo al cargar la página y cada vez que se gire la pantalla o cambie el tamaño
+        window.addEventListener('resize', adaptarDispositivo);
+        adaptarDispositivo();
+
+        // 2. REPRODUCCIÓN AUTOMÁTICA DE MÚSICA
         let musicaIniciada = false;
         let musicaReproduciendo = false;
         
@@ -619,7 +675,7 @@
                     document.removeEventListener('click', iniciarMusicaAuto);
                     document.removeEventListener('touchstart', iniciarMusicaAuto);
                     document.removeEventListener('scroll', iniciarMusicaAuto);
-                }).catch(error => console.log("Autoplay bloqueado."));
+                }).catch(error => console.log("Autoplay bloqueado hasta interacción del usuario."));
             }
         }
         
@@ -644,7 +700,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 2. LÓGICA DE URL
+            // 3. LÓGICA DE URL PARA NOMBRE DE FAMILIA
             const parametrosURL = new URLSearchParams(window.location.search);
             const nombreFamilia = parametrosURL.get('familia');
             const elementoSaludo = document.getElementById('saludo-familia');
@@ -654,7 +710,7 @@
                 elementoSaludo.textContent = `Familia ${nombreFormateado}`;
             }
 
-            // 3. CUENTA REGRESIVA PRINCIPAL (1 de Agosto de 2026)
+            // 4. CUENTA REGRESIVA PRINCIPAL (1 de Agosto de 2026)
             const fechaEvento = new Date("August 1, 2026 19:00:00").getTime();
             const actualizarContador = setInterval(function() {
                 const ahora = new Date().getTime();
@@ -679,7 +735,7 @@
                 }
             }, 1000);
 
-            // 4. CUENTA REGRESIVA RSVP (25 de Julio de 2026)
+            // 5. CUENTA REGRESIVA RSVP (25 de Julio de 2026)
             const fechaLimiteRSVP = new Date("July 25, 2026 00:00:00").getTime();
             const contadorRSVP = setInterval(function() {
                 const ahora = new Date().getTime();
@@ -704,7 +760,7 @@
                 }
             }, 1000);
 
-            // 5. ANIMACIONES SCROLL
+            // 6. ANIMACIONES SCROLL
             const observador = new IntersectionObserver((entradas) => {
                 entradas.forEach((entrada) => {
                     if (entrada.isIntersecting) {
@@ -714,7 +770,7 @@
             }, { threshold: 0.15 }); 
             document.querySelectorAll('.animar-oculto').forEach((el) => observador.observe(el));
 
-            // 6. PARTÍCULAS
+            // 7. PARTÍCULAS
             const containerParticulas = document.getElementById('particles-container');
             const numParticulas = window.innerWidth < 768 ? 15 : 30; 
             for(let i = 0; i < numParticulas; i++) {
@@ -726,7 +782,7 @@
                 containerParticulas.appendChild(petalo);
             }
 
-            // 7. GALERÍA
+            // 8. GALERÍA
             const modalLightbox = document.getElementById('lightbox');
             const modalImg = document.getElementById('lightbox-img');
             document.querySelectorAll('.galeria-img').forEach(img => {
@@ -736,7 +792,7 @@
                 });
             });
 
-            // 8. FORMULARIO Y WHATSAPP
+            // 9. FORMULARIO Y WHATSAPP
             const formRsvp = document.getElementById('form-rsvp');
             formRsvp.addEventListener('submit', function(e) {
                 e.preventDefault(); 
